@@ -1,16 +1,24 @@
 import {useState} from 'react'
 import { MEDIUM_SPACE } from '../styles'
+//import CardContainer from './CardContainer'
 import {MEDIUM_SPACING} from '../styles'
 import React from 'react'
 
-const Card = () => {
+const Card = (props) => {
+    const {header, children} = props
+    const [hideBody, setHideBody] = useState(false)
+
     return (
-        <div class="card border-dark mb-3" style={{maxWidth: '18rem'}}>
-        <div class="card-header">Header</div>
-        <div class="card-body text-dark">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+        
+        <div class="card" style={{width: '18rem'}}>
+            <div class="card-body">
+                
+                <h5 class="card-title">{header}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
+
+                <p class="card-text">{children}</p>
+
+            </div>
         </div>
     )
 }
